@@ -56,15 +56,28 @@ config.bodyParser = {
   enableTypes: [ 'text' ],
 };
 
+// multi official accounts
 config.wx = {
-  redisClient: '', // Set this if used Multi Clients
-  redisPrefix: 'egg-wx',
-  AppID: 'appid',
-  AppSecret: 'app_secret',
-  MiniAppID: 'mini_appid', // wechat mini program app id
-  MiniAppSecret: 'mini_app_secret', // wechat mini program app secret
-  token: 'egg-wx',
-  EncodingAESKey: 'EncodingAESKey',
+  default:{
+     redisClient: '', // Set this if used Multi Clients
+      redisPrefix: 'egg-wx',
+      AppID: 'appid',
+      AppSecret: 'app_secret',
+      MiniAppID: 'mini_appid', // wechat mini program app id
+      MiniAppSecret: 'mini_app_secret', // wechat mini program app secret
+      token: 'egg-wx',
+      EncodingAESKey: 'EncodingAESKey',
+  },
+  microLecture:{
+      redisClient: '', // Set this if used Multi Clients
+      redisPrefix: 'egg-wx',
+      AppID: 'appid',
+      AppSecret: 'app_secret',
+      MiniAppID: 'mini_appid', // wechat mini program app id
+      MiniAppSecret: 'mini_app_secret', // wechat mini program app secret
+      token: 'egg-wx',
+      EncodingAESKey: 'EncodingAESKey',
+  }
 };
 ```
 
@@ -76,7 +89,7 @@ see https://mp.weixin.qq.com/wiki for more detail
 
 ```javascript
 async index() {
-    ctx.body = await app.wx.apiCommon.getAccessToken();
+    ctx.body = await app.wx['default'].apiCommon.getAccessToken();
 }
 ```
 
